@@ -14,4 +14,4 @@ COPY script.sh .
 RUN chmod +x script.sh
 
 # When running docker run the command will be ./hello.sh
-CMD ["./script.sh"]
+ENTRYPOINT ["./script.sh"]
