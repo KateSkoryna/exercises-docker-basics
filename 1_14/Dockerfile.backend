@@ -1,1 +1,17 @@
 # use here COPY 1_13 .
+FROM golang:1.16
+
+WORKDIR /usr/src/app
+
+COPY 1_13 .
+
+ARG REQUEST_ORIGIN=http://localhost:5001
+ENV REQUEST_ORIGIN=$REQUEST_ORIGIN
+
+RUN go build
+
+RUN go test ./...
+
+EXPOSE 8080
+
+CMD ["./server"]
